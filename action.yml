@@ -1,0 +1,21 @@
+name: Docker Action!
+description: run a Dockerfile and pass in the parameter who-to-greet
+author: JMS
+
+# Define your inputs here.
+inputs:
+  who-to-greet:
+    description: Who to greet
+    required: true
+    default: world
+
+# Define your outputs here.
+outputs:
+  time:
+    description: The time we greeted you
+
+runs:
+  using: docker
+  image: Dockerfile
+  args:
+    - ${{ inputs.who-to-greet }}
